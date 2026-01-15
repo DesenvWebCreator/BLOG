@@ -5,7 +5,8 @@ define("SERVER", getenv("DB_HOST") ?: "localhost");
 define("USUARIO", getenv("DB_USER") ?: "root");
 define("SENHA", getenv("DB_PASS") ?: "");
 define("DB", getenv("DB_NAME") ?: "blog");
-$conexao = mysqli_connect(SERVER, USUARIO, SENHA, DB);
+define("PORT", (int)(getenv("DB_PORT") ?: 3306));
+$conexao = mysqli_connect(SERVER, USUARIO, SENHA, DB, PORT);
 /* verifica status da conexão */
 if (mysqli_connect_errno()) {
   //avisa que aconteceu algo errado e apresenta o motivo do erro na conexão
