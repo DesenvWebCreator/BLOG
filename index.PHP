@@ -12,16 +12,6 @@ if (mysqli_connect_errno()) {
   echo "Falha ao conectar com o MySQL. Motivo: " . mysqli_connect_error();
 } else {
   //a conexão foi realizada com sucesso
-  echo "Status OK. <br> Banco de dados " . DB . " conectado! <br>";
-  $sql = "select * FROM T_Apres";
-  if ($result = mysqli_query($conexao, $sql)) {
-    while ($registro = mysqli_fetch_row($result)) {
-      echo "Autor: " . $registro[0] . "<br>Descr: " . $registro[1] . "<br> Foto: " . $registro[2] . "<br>";
-    }
-    mysqli_free_result($result);
-  }
-
-
   define("Autor_Blog", 'Daniel dos Santos');
   $Bloco_TOP5 = array(
     "Cânion Guartelá é um cânion brasileiro situado no planalto dos Campos Gerais, entre os municípios de Castro e Tibagi, no Paraná. É considerado um dos maiores cânions do mundo em extensão, o 6º mais longo do mundo e o mais longo do Brasil.<br> O Cânion do Guartelá é uma garganta retilínea com cerca de 30 km de extensão e desnível máximo de 450 metros. Foi escavado pelo Rio Iapó, que...",
@@ -56,6 +46,12 @@ function Exibe_Categoria($Nome, $Selecionado)
 
   return $Texto;
 }
+// Valores padrão caso o banco de dados não esteja conectado
+$Bloco_Apres = array(
+  "img" => "https://www.w3schools.com/w3images/avatar_g.jpg",
+  "nome" => "Visitante",
+  "descr" => "Bem-vindo! Configure o banco de dados para ver o perfil real."
+);
 $sql = "select * FROM T_Apres";
 if ($result = mysqli_query($conexao, $sql)) {
   if ($registro = mysqli_fetch_row($result)) {
