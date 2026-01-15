@@ -1,13 +1,10 @@
 FROM php:8.2-apache
 
-# Instala a extensão para o MySQL
-RUN docker-php-ext-install pdo pdo_mysql
+# Instala tanto o PDO quanto o MYSQLI (para garantir que seu código funcione)
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Copia tudo para a pasta do servidor
+# Copia os arquivos
 COPY . /var/www/html/
 
-# Dá permissão total de leitura para o Apache
+# Permissões
 RUN chmod -R 755 /var/www/html/
-
-# Garante que o Apache procure o index.php mesmo que ele esteja em subpastas
-RUN echo "DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
