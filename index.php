@@ -53,7 +53,7 @@ $Bloco_Apres = array(
   "nome" => "Visitante",
   "descr" => "Bem-vindo! Configure o banco de dados para ver o perfil real."
 );
-$sql = "select * FROM T_Apres";
+$sql = "select * FROM t_apres";
 if ($result = mysqli_query($conexao, $sql)) {
   if ($registro = mysqli_fetch_row($result)) {
     $Bloco_Apres = array(
