@@ -1,5 +1,5 @@
 # BLOG
-Projeto HTML5 CS3 PHP MYSQL
+Projeto HTML5 W3.CSS PHP MYSQL
 # 📝 Blog Full Stack - PHP & Docker
 
 Este projeto é um blog dinâmico completo, desde a criação do banco de dados até o deploy em ambiente de produção utilizando containers.
