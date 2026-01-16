@@ -1,4 +1,4 @@
-# BLOG
+# BLOG-PHP
 Projeto HTML5 W3.CSS PHP MYSQL
 # 📝 Blog Full Stack - PHP & Docker
 
