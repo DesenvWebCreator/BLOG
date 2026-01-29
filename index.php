@@ -9,11 +9,11 @@ define("PORT", (int)(getenv("DB_PORT") ?: 3306));
 
 // Desabilita exceções automáticas do MySQLi para permitir que o erro seja tratado pelo 'if' abaixo
 mysqli_report(MYSQLI_REPORT_OFF);
-$conexao = mysqli_connect(SERVER, USUARIO, SENHA, DB, PORT);
+$conexao = @mysqli_connect(SERVER, USUARIO, SENHA, DB, PORT);
 /* verifica status da conexão */
 if (mysqli_connect_errno()) {
   //avisa que aconteceu algo errado e apresenta o motivo do erro na conexão
-  echo "Falha ao conectar com o MySQL. Motivo: " . mysqli_connect_error();
+  // echo "Falha ao conectar com o MySQL. Motivo: " . mysqli_connect_error();
 } else {
   //a conexão foi realizada com sucesso
   define("Autor_Blog", 'Daniel dos Santos');
